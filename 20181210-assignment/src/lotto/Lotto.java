@@ -1,13 +1,15 @@
+package lotto;
 import java.io.File;
 import java.io.FileWriter;
+import java.util.ArrayList;
 import java.util.HashSet;
+import java.util.List;
+import java.util.TreeSet;
 
 public class Lotto {
 
 	public static void main(String[] args) {
 		Lotto lotto = new Lotto();
-		// lotto.number(); 번호추출
-		// lotto.writeNumber(); 파일
 
 		String fileName = "C:\\devTool\\lotto.txt";
 
@@ -24,31 +26,15 @@ public class Lotto {
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-
 	}
 
 	private String number() {
+		TreeSet<Integer> lotto = new TreeSet<Integer>();
 
-
-		HashSet<Integer> lotto = new HashSet<Integer>();
-
-		for (int i = 0; lotto.size()<6; i++) {
-			lotto.add((int) (Math.random() * 45) + 1);
-
-			/*
-			 * for(int j=0; i<j; j++) { if(lotto[j] == lotto[i]) { i--; break; }
-			 */
-
-			/*	for (int j = 0; j < lotto.length - 1; j++) {
-				if (lotto[j] > lotto[j + 1]) {
-					int temp = lotto[j];
-					lotto[j] = lotto[j + 1];
-					lotto[j + 1] = temp;
-				}
-			}*/
+		for (int i = 0; lotto.size()<6; i++) {  
+			int lottoNum = (int) ((Math.random() * 45) + 1);
+			lotto.add(lottoNum);
 		}
-
 		return lotto.toString();
 	}
-
 }
